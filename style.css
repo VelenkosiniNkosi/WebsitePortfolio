@@ -744,3 +744,92 @@ footer {
         font-size: 12px;
     }
 }
+
+/* Dark/Light Mode Variables */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --nav-bg: #f8f9fa;
+    --nav-text: #333333;
+    --nav-hover: #007bff;
+    --border-color: #e0e0e0;
+    --card-bg: #ffffff;
+    --card-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --nav-bg: #1e1e1e;
+    --nav-text: #e0e0e0;
+    --nav-hover: #4dabf7;
+    --border-color: #333333;
+    --card-bg: #1e1e1e;
+    --card-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--nav-bg);
+    border: 2px solid var(--border-color);
+    color: var(--nav-text);
+    cursor: pointer;
+    font-size: 1.2rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.theme-toggle:hover {
+    background: var(--nav-hover);
+    color: white;
+    transform: scale(1.1);
+}
+
+/* Apply theme to your existing elements */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav {
+    background-color: var(--nav-bg);
+}
+
+nav ul li a {
+    color: var(--nav-text);
+}
+
+nav ul li a:hover {
+    color: var(--nav-hover);
+}
+
+/* FONT AWESOME ICON FIX FOR DARK MODE */
+/* This ensures all Font Awesome icons remain visible in dark mode */
+[data-theme="dark"] .fas,
+[data-theme="dark"] .far,
+[data-theme="dark"] .fab,
+[data-theme="dark"] .fal,
+[data-theme="dark"] .fad {
+    color: var(--text-color) !important;
+}
+
+/* If you have specific icons that should keep their original colors */
+[data-theme="dark"] .whatsapp-float i {
+    color: white !important; /* WhatsApp icon stays white */
+}
+
+/* For any icons that need to be inverted in dark mode */
+[data-theme="dark"] .invert-icon {
+    filter: invert(1);
+}
