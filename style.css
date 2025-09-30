@@ -1,5 +1,6 @@
 /* Modern CSS Reset and Variables */
 :root {
+  /* Light theme (default) */
   --primary: #6a11cb;
   --secondary: #2575fc;
   --accent: #ff6b6b;
@@ -9,6 +10,28 @@
   --success: #4CAF50;
   --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   --transition: all 0.3s ease;
+  
+  /* Extended variables for dark mode */
+  --bg-color: #ffffff;
+  --text-color: #2d3436;
+  --nav-bg: rgba(255, 255, 255, 0.95);
+  --nav-text: #2d3436;
+  --card-bg: #ffffff;
+  --border-color: #e0e0e0;
+}
+
+[data-theme="dark"] {
+  /* Dark theme */
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+  --dark: #e0e0e0;
+  --light: #121212;
+  --gray: #b2bec3;
+  --nav-bg: rgba(30, 30, 30, 0.95);
+  --nav-text: #e0e0e0;
+  --card-bg: #1e1e1e;
+  --border-color: #333333;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 * {
@@ -24,9 +47,10 @@ html {
 body {
   font-family: 'Poppins', sans-serif;
   line-height: 1.6;
-  color: var(--dark);
-  background-color: var(--light);
+  color: var(--text-color);
+  background-color: var(--bg-color);
   overflow-x: hidden;
+  transition: var(--transition);
 }
 
 .container {
@@ -43,7 +67,7 @@ header {
   left: 0;
   width: 100%;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.95);
+  background: var(--nav-bg);
   box-shadow: var(--shadow);
   backdrop-filter: blur(10px);
   transition: var(--transition);
@@ -59,7 +83,7 @@ header {
 .logo {
   font-size: 1.8rem;
   font-weight: 700;
-  color: var(--dark);
+  color: var(--text-color);
 }
 
 .logo span {
@@ -80,7 +104,7 @@ nav ul li {
 
 nav ul li a {
   text-decoration: none;
-  color: var(--dark);
+  color: var(--text-color);
   font-weight: 500;
   transition: var(--transition);
   position: relative;
@@ -337,7 +361,7 @@ section {
 }
 
 .skill-category {
-  background: white;
+  background: var(--card-bg);
   padding: 30px;
   border-radius: 10px;
   box-shadow: var(--shadow);
@@ -377,7 +401,7 @@ section {
 }
 
 .experience-card, .education-item, .certification-item {
-  background: white;
+  background: var(--card-bg);
   padding: 30px;
   border-radius: 10px;
   box-shadow: var(--shadow);
@@ -474,10 +498,12 @@ section {
 .form-control {
   width: 100%;
   padding: 15px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--border-color);
   border-radius: 5px;
   font-family: 'Poppins', sans-serif;
   transition: var(--transition);
+  background: var(--card-bg);
+  color: var(--text-color);
 }
 
 .form-control:focus {
@@ -493,7 +519,7 @@ textarea.form-control {
 
 /* Footer */
 footer {
-  background: var(--dark);
+  background: #2d3436;
   color: white;
   padding: 40px 0;
   text-align: center;
@@ -513,7 +539,7 @@ footer {
   display: inline-block;
   width: 40px;
   height: 40px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.2);
   border-radius: 50%;
   margin: 0 10px;
   color: white;
@@ -526,6 +552,7 @@ footer {
 
 .social-links a:hover {
   background: linear-gradient(45deg, var(--primary), var(--secondary));
+  color: white;
   transform: translateY(-5px);
 }
 
@@ -571,103 +598,13 @@ footer {
   transform: translateY(0);
 }
 
-/* Responsive Design */
-@media (max-width: 992px) {
-  .about-content,
-  .contact-container {
-    grid-template-columns: 1fr;
-  }
-  
-  .about-img {
-    order: -1;
-  }
-}
-
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-  }
-  
-  nav {
-    position: fixed;
-    top: 80px;
-    left: -100%;
-    width: 100%;
-    height: calc(100vh - 80px);
-    background: white;
-    transition: var(--transition);
-    padding: 20px;
-  }
-  
-  nav.active {
-    left: 0;
-  }
-  
-  nav ul {
-    flex-direction: column;
-  }
-  
-  nav ul li {
-    margin: 15px 0;
-  }
-  
-  .hero h1 {
-    font-size: 2.5rem;
-  }
-  
-  .section-title {
-    font-size: 2rem;
-  }
-  
-  .skills-container,
-  .experience-cards,
-  .education-container,
-  .certifications-container {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --dark: #f9f9f9;
-    --light: #2d3436;
-    --gray: #b2bec3;
-  }
-  
-  body {
-    background-color: var(--light);
-    color: var(--dark);
-  }
-  
-  header {
-    background: rgba(45, 52, 54, 0.95);
-  }
-  
-  .logo {
-    color: var(--dark);
-  }
-  
-  nav ul li a {
-    color: var(--dark);
-  }
-  
-  .skill-category,
-  .experience-card,
-  .education-item,
-  .certification-item {
-    background: #3c4245;
-  }
-}
-
-
 /* WhatsApp Floating Button Styles - LEFT SIDE */
 .whatsapp-float {
     position: fixed;
     width: 60px;
     height: 60px;
     bottom: 40px;
-    left: 40px; /* Changed from right to left */
+    left: 40px;
     background-color: #25d366;
     color: #FFF;
     border-radius: 50px;
@@ -700,7 +637,7 @@ footer {
 /* Update tooltip position for left side */
 .whatsapp-tooltip {
     position: absolute;
-    left: 70px; /* Changed from right to left */
+    left: 70px;
     bottom: 15px;
     background: rgba(0, 0, 0, 0.8);
     color: white;
@@ -729,45 +666,6 @@ footer {
     }
 }
 
-/* Responsive adjustments for left side */
-@media (max-width: 768px) {
-    .whatsapp-float {
-        width: 50px;
-        height: 50px;
-        bottom: 20px;
-        left: 20px; /* Changed from right to left */
-        font-size: 25px;
-    }
-    
-    .whatsapp-tooltip {
-        left: 60px; /* Changed from right to left */
-        font-size: 12px;
-    }
-}
-
-/* Dark/Light Mode Variables */
-:root {
-    --bg-color: #ffffff;
-    --text-color: #333333;
-    --nav-bg: #f8f9fa;
-    --nav-text: #333333;
-    --nav-hover: #007bff;
-    --border-color: #e0e0e0;
-    --card-bg: #ffffff;
-    --card-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-[data-theme="dark"] {
-    --bg-color: #121212;
-    --text-color: #e0e0e0;
-    --nav-bg: #1e1e1e;
-    --nav-text: #e0e0e0;
-    --nav-hover: #4dabf7;
-    --border-color: #333333;
-    --card-bg: #1e1e1e;
-    --card-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-}
-
 /* Theme Toggle Button */
 .theme-toggle {
     position: fixed;
@@ -775,7 +673,7 @@ footer {
     right: 20px;
     background: var(--nav-bg);
     border: 2px solid var(--border-color);
-    color: var(--nav-text);
+    color: var(--text-color);
     cursor: pointer;
     font-size: 1.2rem;
     width: 50px;
@@ -784,52 +682,99 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 1000;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1001;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
 }
 
 .theme-toggle:hover {
-    background: var(--nav-hover);
+    background: var(--primary);
     color: white;
     transform: scale(1.1);
 }
 
-/* Apply theme to your existing elements */
-body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    transition: background-color 0.3s, color 0.3s;
-}
-
-nav {
-    background-color: var(--nav-bg);
-}
-
-nav ul li a {
-    color: var(--nav-text);
-}
-
-nav ul li a:hover {
-    color: var(--nav-hover);
-}
-
-/* FONT AWESOME ICON FIX FOR DARK MODE */
-/* This ensures all Font Awesome icons remain visible in dark mode */
+/* Fix for Font Awesome icons in dark mode */
 [data-theme="dark"] .fas,
 [data-theme="dark"] .far,
-[data-theme="dark"] .fab,
-[data-theme="dark"] .fal,
-[data-theme="dark"] .fad {
-    color: var(--text-color) !important;
+[data-theme="dark"] .fab {
+    color: var(--text-color);
 }
 
-/* If you have specific icons that should keep their original colors */
+/* WhatsApp button stays green in dark mode */
+[data-theme="dark"] .whatsapp-float {
+    background-color: #25d366;
+}
+
 [data-theme="dark"] .whatsapp-float i {
-    color: white !important; /* WhatsApp icon stays white */
+    color: white;
 }
 
-/* For any icons that need to be inverted in dark mode */
-[data-theme="dark"] .invert-icon {
-    filter: invert(1);
+/* Responsive Design */
+@media (max-width: 992px) {
+  .about-content,
+  .contact-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .about-img {
+    order: -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+  
+  nav {
+    position: fixed;
+    top: 80px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 80px);
+    background: var(--card-bg);
+    transition: var(--transition);
+    padding: 20px;
+  }
+  
+  nav.active {
+    left: 0;
+  }
+  
+  nav ul {
+    flex-direction: column;
+  }
+  
+  nav ul li {
+    margin: 15px 0;
+  }
+  
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .skills-container,
+  .experience-cards,
+  .education-container,
+  .certifications-container {
+    grid-template-columns: 1fr;
+  }
+
+  /* WhatsApp responsive */
+  .whatsapp-float {
+      width: 50px;
+      height: 50px;
+      bottom: 20px;
+      left: 20px;
+      font-size: 25px;
+  }
+  
+  .whatsapp-tooltip {
+      left: 60px;
+      font-size: 12px;
+  }
 }
