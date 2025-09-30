@@ -661,13 +661,13 @@ footer {
 }
 
 
-/* WhatsApp Floating Button Styles */
+/* WhatsApp Floating Button Styles - LEFT SIDE */
 .whatsapp-float {
     position: fixed;
     width: 60px;
     height: 60px;
     bottom: 40px;
-    right: 40px;
+    left: 40px; /* Changed from right to left */
     background-color: #25d366;
     color: #FFF;
     border-radius: 50px;
@@ -697,9 +697,10 @@ footer {
     margin-top: 2px;
 }
 
+/* Update tooltip position for left side */
 .whatsapp-tooltip {
     position: absolute;
-    right: 70px;
+    left: 70px; /* Changed from right to left */
     bottom: 15px;
     background: rgba(0, 0, 0, 0.8);
     color: white;
@@ -728,18 +729,18 @@ footer {
     }
 }
 
-/* Responsive adjustments */
+/* Responsive adjustments for left side */
 @media (max-width: 768px) {
     .whatsapp-float {
         width: 50px;
         height: 50px;
         bottom: 20px;
-        right: 20px;
+        left: 20px; /* Changed from right to left */
         font-size: 25px;
     }
     
     .whatsapp-tooltip {
-        right: 60px;
+        left: 60px; /* Changed from right to left */
         font-size: 12px;
     }
 }
