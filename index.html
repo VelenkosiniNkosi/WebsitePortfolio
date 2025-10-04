@@ -4,19 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Darrell Velenkosini Nkosi | Portfolio</title>
-<link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    /* [All your existing CSS styles remain exactly the same] */
-    /* ... your existing CSS code ... */
-  </style>
 </head>
 <body>
   <!-- Header -->
   <header>
     <div class="container header-content">
-      <div class="logo">Darrell   <span>Nkosi</span></div>
+      <div class="logo">Darrell <span>Nkosi</span></div>
       <div class="menu-toggle">
         <i class="fas fa-bars"></i>
       </div>
@@ -31,14 +27,11 @@
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
-
-
-<!-- Add this theme toggle button -->
-<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-    <i class="fas fa-moon"></i>
-</button>
-
       
+      <!-- Theme toggle button -->
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <i class="fas fa-moon"></i>
+      </button>
     </div>
   </header>
 
@@ -331,143 +324,156 @@
   <!-- Back to Top Button -->
   <a href="#home" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
 
-  <script>
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/27634650914" target="_blank" class="whatsapp-float">
+    <i class="fab fa-whatsapp"></i>
+    <span class="whatsapp-tooltip">Chat with me on WhatsApp</span>
+  </a>
 
-// Theme toggle functionality
-document.addEventListener('DOMContentLoaded', function() {
-    const themeToggle = document.getElementById('themeToggle');
-    const themeIcon = themeToggle.querySelector('i');
-    
-    // Check for saved theme or system preference
-    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-    const currentTheme = localStorage.getItem('theme');
-    
-    // Set initial theme
-    if (currentTheme === 'dark' || (!currentTheme && prefersDarkScheme.matches)) {
+  <script>
+    // Theme toggle functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const themeToggle = document.getElementById('themeToggle');
+      const themeIcon = themeToggle.querySelector('i');
+      
+      // Check for saved theme or system preference
+      const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+      const currentTheme = localStorage.getItem('theme');
+      
+      // Set initial theme
+      if (currentTheme === 'dark' || (!currentTheme && prefersDarkScheme.matches)) {
         document.documentElement.setAttribute('data-theme', 'dark');
         themeIcon.classList.remove('fa-moon');
         themeIcon.classList.add('fa-sun');
-    } else {
+      } else {
         document.documentElement.setAttribute('data-theme', 'light');
         themeIcon.classList.remove('fa-sun');
         themeIcon.classList.add('fa-moon');
-    }
-    
-    // Toggle theme on button click
-    themeToggle.addEventListener('click', function() {
+      }
+      
+      // Toggle theme on button click
+      themeToggle.addEventListener('click', function() {
         const currentTheme = document.documentElement.getAttribute('data-theme');
         
         if (currentTheme === 'light') {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            themeIcon.classList.remove('fa-moon');
-            themeIcon.classList.add('fa-sun');
-            localStorage.setItem('theme', 'dark');
+          document.documentElement.setAttribute('data-theme', 'dark');
+          themeIcon.classList.remove('fa-moon');
+          themeIcon.classList.add('fa-sun');
+          localStorage.setItem('theme', 'dark');
         } else {
-            document.documentElement.setAttribute('data-theme', 'light');
-            themeIcon.classList.remove('fa-sun');
-            themeIcon.classList.add('fa-moon');
-            localStorage.setItem('theme', 'light');
-        }
-    });
-});
-    
-    // Menu Toggle
-    const menuToggle = document.querySelector('.menu-toggle');
-    const nav = document.querySelector('nav');
-    
-    menuToggle.addEventListener('click', () => {
-      nav.classList.toggle('active');
-    });
-
-    // Scroll Animation
-    const observerOptions = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.1
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
+          document.documentElement.setAttribute('data-theme', 'light');
+          themeIcon.classList.remove('fa-sun');
+          themeIcon.classList.add('fa-moon');
+          localStorage.setItem('theme', 'light');
         }
       });
-    }, observerOptions);
+      
+      // Menu Toggle
+      const menuToggle = document.querySelector('.menu-toggle');
+      const nav = document.querySelector('nav');
+      
+      menuToggle.addEventListener('click', () => {
+        nav.classList.toggle('active');
+      });
 
-    // Observe elements for animation
-    document.querySelectorAll('.about-text, .about-img, .skill-category, .experience-card, .education-item, .certification-item, .contact-info, .contact-form').forEach(el => {
-      observer.observe(el);
-    });
+      // Close menu when clicking on a link
+      document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', () => {
+          nav.classList.remove('active');
+        });
+      });
 
-    // Back to Top Button
-    const backToTopButton = document.querySelector('.back-to-top');
-    
-    window.addEventListener('scroll', () => {
-      if (window.pageYOffset > 300) {
-        backToTopButton.classList.add('active');
-      } else {
-        backToTopButton.classList.remove('active');
-      }
-    });
+      // Close menu when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('nav') && !e.target.closest('.menu-toggle') && nav.classList.contains('active')) {
+          nav.classList.remove('active');
+        }
+      });
 
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
-        
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-          window.scrollTo({
-            top: targetElement.offsetTop - 80,
-            behavior: 'smooth'
-          });
-          
-          // Close mobile menu if open
-          if (nav.classList.contains('active')) {
-            nav.classList.remove('active');
+      // Scroll Animation
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
           }
+        });
+      }, observerOptions);
+
+      // Observe elements for animation
+      document.querySelectorAll('.about-text, .about-img, .skill-category, .experience-card, .education-item, .certification-item, .contact-info, .contact-form').forEach(el => {
+        observer.observe(el);
+      });
+
+      // Back to Top Button
+      const backToTopButton = document.querySelector('.back-to-top');
+      
+      window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+          backToTopButton.classList.add('active');
+        } else {
+          backToTopButton.classList.remove('active');
         }
       });
-    });
 
-    // Contact Form Validation (from index.html)
-    document.getElementById('contactForm').addEventListener('submit', function(event) {
-      // Basic validation
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const subject = document.getElementById('subject').value;
-      const message = document.getElementById('message').value;
-      
-      if (!name || !email || !subject || !message) {
-        event.preventDefault();
-        alert('Please fill in all fields before submitting.');
-        return;
-      }
-      
-      // Email validation
-      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailPattern.test(email)) {
-        event.preventDefault();
-        alert('Please enter a valid email address.');
-        return;
-      }
-      
-      // Show loading state
-      const submitBtn = this.querySelector('button[type="submit"]');
-      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-      submitBtn.disabled = true;
-      
-      // FormSubmit will handle the redirect to thank-you.html
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+          
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: 'smooth'
+            });
+            
+            // Close mobile menu if open
+            if (nav.classList.contains('active')) {
+              nav.classList.remove('active');
+            }
+          }
+        });
+      });
+
+      // Contact Form Validation
+      document.getElementById('contactForm').addEventListener('submit', function(event) {
+        // Basic validation
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value;
+        
+        if (!name || !email || !subject || !message) {
+          event.preventDefault();
+          alert('Please fill in all fields before submitting.');
+          return;
+        }
+        
+        // Email validation
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+          event.preventDefault();
+          alert('Please enter a valid email address.');
+          return;
+        }
+        
+        // Show loading state
+        const submitBtn = this.querySelector('button[type="submit"]');
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        submitBtn.disabled = true;
+        
+        // FormSubmit will handle the redirect to thank-you.html
+      });
     });
   </script>
-<!-- WhatsApp Floating Button -->
-<a href="https://wa.me/27634650914" target="_blank" class="whatsapp-float">
-    <i class="fab fa-whatsapp"></i>
-    <span class="whatsapp-tooltip">Chat with me on WhatsApp</span>
-</a>
-  
 </body>
 </html>
