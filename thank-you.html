@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You | Darrell Nkosi</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #10b981;
+      --primary-dark: #059669;
+      --accent: #f59e0b;
+      --bg: #f3f4f6;
+      --card-bg: #ffffff;
+      --text: #111827;
+      --text-muted: #6b7280;
+      --border: #e5e7eb;
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      width: 500px; height: 500px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(16,185,129,0.12) 0%, transparent 70%);
+      top: -200px; right: -150px; pointer-events: none;
+    }
+    body::after {
+      content: '';
+      position: fixed;
+      width: 350px; height: 350px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(245,158,11,0.08) 0%, transparent 70%);
+      bottom: -100px; left: -100px; pointer-events: none;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.10);
+      padding: 52px 44px;
+      max-width: 520px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      animation: slideUp 0.6s cubic-bezier(0.4,0,0.2,1) both;
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .logo {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+    }
+    .logo span { color: var(--primary); }
+
+    .icon-wrap {
+      width: 80px; height: 80px;
+      background: rgba(16,185,129,0.1);
+      border: 2px solid rgba(16,185,129,0.25);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 28px;
+      animation: popIn 0.5s 0.3s cubic-bezier(0.34,1.56,0.64,1) both;
+    }
+
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(0.5); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    .icon-wrap i { font-size: 2rem; color: var(--primary); }
+
+    h1 {
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+
+    .divider {
+      width: 48px; height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      border-radius: 2px;
+      margin: 18px auto;
+    }
+
+    p {
+      color: var(--text-muted);
+      font-size: 0.93rem;
+      line-height: 1.75;
+      margin-bottom: 10px;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 32px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 24px;
+      border-radius: 8px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+      box-shadow: 0 4px 14px rgba(16,185,129,0.28);
+    }
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      border-color: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(16,185,129,0.36);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border-color: var(--border);
+    }
+    .btn-outline:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .footer-note {
+      margin-top: 28px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo">Darrell <span>Nkosi</span></div>
+
+    <div class="icon-wrap">
+      <i class="fas fa-check"></i>
+    </div>
+
+    <h1>Message Received!</h1>
+    <div class="divider"></div>
+
+    <p>Thank you for reaching out — I appreciate you taking the time to get in touch.</p>
+    <p>I'll review your message and get back to you as soon as possible, typically within 24–48 hours.</p>
+
+    <div class="btn-group">
+      <a href="https://velenkosininkosi.github.io/WebsitePortfolio/" class="btn btn-primary">
+        <i class="fas fa-arrow-left"></i> Back to Portfolio
+      </a>
+      <a href="https://www.linkedin.com/in/darrell-nkosi-86797a28b" target="_blank" class="btn btn-outline">
+        <i class="fab fa-linkedin-in"></i> Connect on LinkedIn
+      </a>
+    </div>
+
+    <p class="footer-note">A confirmation email has been sent to your inbox.</p>
+  </div>
+</body>
+</html>
