@@ -146,7 +146,7 @@
             <li><i class="fas fa-circle"></i> Node.js &amp; Express</li>
             <li><i class="fas fa-circle"></i> SQL Server &amp; NoSQL</li>
             <li><i class="fas fa-circle"></i> REST API Design</li>
-            <li><i class="fas fa-circle"></i> C# (.NET, Windows Forms, Blazor)</li>
+            <li><i class="fas fa-circle"></i> C# (.NET, Windows Forms)</li>
           </ul>
         </div>
         <div class="skill-category fade-in">
@@ -419,14 +419,6 @@
           </ul>
         </div>
         <div class="education-item fade-in">
-          <h3>Golden Key International Honour Society</h3>
-          <div class="education-date">2024 – Present</div>
-          <p>Member - Southern Africa Chapter</p>
-          <ul class="education-details">
-            <li><i class="fas fa-key"></i> Top academic performers globally (top 15% of students)</li>
-          </ul>
-        </div>
-        <div class="education-item fade-in">
           <h3>Honorary Award - Exceptional Leadership</h3>
           <div class="education-date">2025</div>
           <p>House Beyers Naudé, UFS - Corridor Prime (Ikhamanga)</p>
@@ -536,11 +528,6 @@
           <p>Leveraging AI-assisted tools including GitHub Copilot to accelerate C# development workflows.</p>
         </div>
         <div class="certification-item fade-in">
-          <h3>Building Hybrid Apps with Blazor &amp; .NET MAUI</h3>
-          <div class="certification-provider">LinkedIn Learning</div>
-          <p>Cross-platform mobile and web app development using Blazor and .NET MAUI.</p>
-        </div>
-        <div class="certification-item fade-in">
           <h3>UFS Certificates of Service (×5)</h3>
           <div class="certification-provider">University of the Free State — Dept. of CS &amp; Informatics</div>
           <p>Officially certified Demonstrator for BCIS1623, BCIS2624, CSIL1511/1561, CSIS1534/1644, and Computer Science Lab — signed by lecturers and Head of Department.</p>
@@ -562,7 +549,7 @@
           <p>I'm actively looking for Software Developer, IT Internship, Frontend, Backend, Business Analyst, and Systems Analyst roles in South Africa. Recruiters and companies — let's connect!</p>
           <ul class="contact-details">
             <li><i class="fas fa-phone"></i> +27 063 465 0914</li>
-            <li><i class="fas fa-envelope"></i> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3e485b525b5055514d5750575055514d570e0c7e59535f5752105d5153">[email&#160;protected]</a></li>
+            <li><i class="fas fa-envelope"></i> <a href="mailto:velenkosininkosi02@gmail.com">velenkosininkosi02@gmail.com</a></li>
             <li><i class="fas fa-map-marker-alt"></i> Bloemfontein, South Africa</li>
           </ul>
           <div class="contact-socials">
@@ -612,7 +599,7 @@
         <div class="social-links">
           <a href="https://www.linkedin.com/in/darrell-nkosi-86797a28b" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
           <a href="https://github.com/VelenkosiniNkosi" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-          <a href="/cdn-cgi/l/email-protection#780e1d141d1613170b1116111613170b11484a381f15191114561b1715" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          <a href="mailto:velenkosininkosi02@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
         </div>
       </div>
       <div class="footer-bottom">
@@ -629,7 +616,7 @@
     <span class="whatsapp-tooltip">Chat on WhatsApp</span>
   </a>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script>
     document.addEventListener('DOMContentLoaded', function () {
 
       // Dynamic Year
@@ -640,25 +627,28 @@
       const now = new Date();
       document.getElementById('lastUpdated').textContent = months[now.getMonth()] + ' ' + now.getFullYear();
 
-      // Theme Toggle
-      const themeToggle = document.getElementById('themeToggle');
-      const themeIcon = themeToggle.querySelector('i');
+      // Theme Toggle — bulletproof for GitHub Pages
+      (function() {
+        var toggle = document.getElementById('themeToggle');
 
-      function setTheme(theme) {
-        document.documentElement.setAttribute('data-theme', theme);
-        themeIcon.classList.remove('fa-moon', 'fa-sun');
-        themeIcon.classList.add(theme === 'dark' ? 'fa-sun' : 'fa-moon');
-        localStorage.setItem('theme', theme);
-      }
+        function setTheme(theme) {
+          document.documentElement.setAttribute('data-theme', theme);
+          var icon = toggle ? toggle.querySelector('i') : null;
+          if (icon) { icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon'; }
+          try { localStorage.setItem('theme', theme); } catch(e) {}
+        }
 
-      const savedTheme = localStorage.getItem('theme');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      setTheme(savedTheme || (prefersDark ? 'dark' : 'light'));
+        var saved = 'light';
+        try { saved = localStorage.getItem('theme') || 'light'; } catch(e) {}
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        setTheme((saved === 'dark' || saved === 'light') ? saved : (prefersDark ? 'dark' : 'light'));
 
-      themeToggle.addEventListener('click', function () {
-        const current = document.documentElement.getAttribute('data-theme');
-        setTheme(current === 'dark' ? 'light' : 'dark');
-      });
+        if (toggle) {
+          toggle.addEventListener('click', function() {
+            setTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+          });
+        }
+      })();
 
       // Mobile Menu
       const menuToggle = document.querySelector('.menu-toggle');
