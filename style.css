@@ -385,8 +385,11 @@ footer {
 .whatsapp-float:hover .whatsapp-tooltip { opacity:1; }
 
 /* ── ANIMATIONS ── */
-.fade-in { opacity:0; transform:translateY(22px); transition:opacity 0.55s ease,transform 0.55s ease; }
+.fade-in { opacity:1; transform:translateY(0); transition:opacity 0.55s ease,transform 0.55s ease; }
 .fade-in.in-view { opacity:1; transform:translateY(0); }
+/* JS adds .anim-ready to body to enable hide-then-reveal animation */
+.anim-ready .fade-in { opacity:0; transform:translateY(22px); }
+.anim-ready .fade-in.in-view { opacity:1; transform:translateY(0); }
 
 /* ── RESPONSIVE ── */
 @media(max-width:992px){
