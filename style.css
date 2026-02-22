@@ -165,23 +165,23 @@ nav ul li a:hover { color: var(--primary); background: rgba(16,185,129,0.08); }
 /* ── BUTTONS ── */
 .btn {
   display:inline-flex; align-items:center; gap:8px;
-  padding:11px 26px; background:var(--primary); color:white;
-  border-radius:8px; text-decoration:none; font-weight:600;
+  padding:11px 26px; background:#f59e0b; color:#111827;
+  border-radius:8px; text-decoration:none; font-weight:700;
   font-size:0.9rem; transition:var(--transition);
-  border:2px solid var(--primary); cursor:pointer;
-  box-shadow:0 4px 14px rgba(16,185,129,0.28);
+  border:2px solid #f59e0b; cursor:pointer;
+  box-shadow:0 4px 14px rgba(245,158,11,0.35);
 }
 .btn:hover {
-  background:var(--primary-dark); border-color:var(--primary-dark);
-  transform:translateY(-2px); box-shadow:0 8px 24px rgba(16,185,129,0.38);
+  background:#d97706; border-color:#d97706; color:white;
+  transform:translateY(-2px); box-shadow:0 8px 24px rgba(245,158,11,0.35);
 }
 .btn-outline {
-  background:transparent; color:var(--text);
-  border-color:var(--border); box-shadow:none;
+  background:transparent; color:#f59e0b;
+  border-color:#f59e0b; box-shadow:none;
 }
 .btn-outline:hover {
-  border-color:var(--primary); color:var(--primary);
-  background:rgba(16,185,129,0.06); box-shadow:none;
+  background:#f59e0b; color:#111827;
+  border-color:#f59e0b; box-shadow:0 4px 14px rgba(245,158,11,0.35);
 }
 
 /* ── SECTIONS ── */
@@ -541,34 +541,34 @@ footer {
   gap: 7px;
   margin-top: 14px;
   font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--primary);
+  font-weight: 700;
+  color: #f59e0b;
   text-decoration: none;
   padding: 6px 14px;
-  border: 1px solid rgba(16,185,129,0.3);
+  border: 1.5px solid #f59e0b;
   border-radius: 100px;
-  background: rgba(16,185,129,0.05);
+  background: rgba(245,158,11,0.12);
   transition: var(--transition);
 }
 
 .case-study-link:hover {
-  background: var(--primary);
-  color: white;
-  border-color: var(--primary);
+  background: #f59e0b;
+  color: #111827;
+  border-color: #f59e0b;
 }
 
 /* ── DOWNLOAD CV BUTTON ── */
 .btn-cv {
   background: transparent;
-  color: var(--primary);
-  border: 2px solid var(--primary);
+  color: #f59e0b;
+  border: 2px solid #f59e0b;
   box-shadow: none;
 }
 
 .btn-cv:hover {
-  background: var(--primary);
-  color: white;
-  box-shadow: 0 4px 14px rgba(16,185,129,0.3);
+  background: #f59e0b;
+  color: #111827;
+  box-shadow: 0 4px 14px rgba(245,158,11,0.35);
 }
 
 /* ── LAST UPDATED BADGE ── */
