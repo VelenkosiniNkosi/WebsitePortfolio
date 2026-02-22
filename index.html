@@ -73,7 +73,7 @@
     <div class="container hero-content">
       <div class="hero-text">
         <div class="hero-badge">IBM &amp; BBD Award Winner &middot; Open to Opportunities · SA</div>
-        <h1>Full-Stack <span class="highlight">Developer</span> &amp; Aspiring Business Analyst</h1>
+        <h1>Full-Stack <span class="highlight">Developer</span> &amp; <span class="highlight">Business/Systems Analyst</span></h1>
         <p class="hero-sub">
           Darrell Velenkosini Nkosi — BCIS Honours student at UFS, Bloemfontein. I build end-to-end web apps with React, Next.js, Node.js &amp; SQL and understand systems from both a technical and business perspective. Actively seeking Software Dev, IT Internship, Frontend, Backend, and BA/SA roles across South Africa.
         </p>
@@ -617,7 +617,7 @@
       </div>
       <div class="footer-bottom">
         <p>&copy; <span id="footerYear"></span> Darrell Velenkosini Nkosi. All rights reserved.</p>
-        <p>Full-Stack Developer &amp; Aspiring Business Analyst &middot; Bloemfontein, SA</p>
+        <p>Full-Stack Developer &amp; Business/Systems Analyst &middot; Bloemfontein, SA</p>
       </div>
     </div>
   </footer>
@@ -640,25 +640,33 @@
       const now = new Date();
       document.getElementById('lastUpdated').textContent = months[now.getMonth()] + ' ' + now.getFullYear();
 
-      // Theme Toggle
+      // Theme Toggle — bulletproof version for GitHub Pages
       const themeToggle = document.getElementById('themeToggle');
-      const themeIcon = themeToggle.querySelector('i');
 
       function setTheme(theme) {
         document.documentElement.setAttribute('data-theme', theme);
-        themeIcon.classList.remove('fa-moon', 'fa-sun');
-        themeIcon.classList.add(theme === 'dark' ? 'fa-sun' : 'fa-moon');
-        localStorage.setItem('theme', theme);
+        // Update icon safely
+        const icon = themeToggle ? themeToggle.querySelector('i') : null;
+        if (icon) {
+          icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        }
+        try { localStorage.setItem('theme', theme); } catch(e) {}
       }
 
-      const savedTheme = localStorage.getItem('theme');
+      // Read saved theme — default to light
+      let savedTheme = 'light';
+      try { savedTheme = localStorage.getItem('theme') || 'light'; } catch(e) {}
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      setTheme(savedTheme || (prefersDark ? 'dark' : 'light'));
+      setTheme(savedTheme !== 'light' && savedTheme !== 'dark'
+        ? (prefersDark ? 'dark' : 'light')
+        : savedTheme);
 
-      themeToggle.addEventListener('click', function () {
-        const current = document.documentElement.getAttribute('data-theme');
-        setTheme(current === 'dark' ? 'light' : 'dark');
-      });
+      if (themeToggle) {
+        themeToggle.addEventListener('click', function () {
+          const current = document.documentElement.getAttribute('data-theme');
+          setTheme(current === 'dark' ? 'light' : 'dark');
+        });
+      }
 
       // Mobile Menu
       const menuToggle = document.querySelector('.menu-toggle');
@@ -673,19 +681,33 @@
         }
       });
 
-      // Scroll Animations
-      // If running locally (file://), reveal everything immediately
-      // On GitHub Pages the IntersectionObserver works properly
-      const isLocal = window.location.protocol === 'file:';
-      if (isLocal) {
+      // Scroll Animations — works locally AND on GitHub Pages
+      const revealAll = () => {
         document.querySelectorAll('.fade-in').forEach(el => el.classList.add('in-view'));
-      } else {
+      };
+
+      if ('IntersectionObserver' in window) {
         const observer = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
-            if (entry.isIntersecting) entry.target.classList.add('in-view');
+            if (entry.isIntersecting) {
+              entry.target.classList.add('in-view');
+              observer.unobserve(entry.target);
+            }
           });
-        }, { threshold: 0.07 });
+        }, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
+
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Reveal anything already visible on load (above the fold)
+        setTimeout(() => {
+          document.querySelectorAll('.fade-in:not(.in-view)').forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight) el.classList.add('in-view');
+          });
+        }, 100);
+      } else {
+        // Fallback for older browsers
+        revealAll();
       }
 
       // Back to Top
