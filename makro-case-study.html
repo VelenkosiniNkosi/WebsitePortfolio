@@ -1,0 +1,759 @@
+<!DOC
+    TYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Makro Digital Experience Audit - Case Study | Darrell Nkosi</title>
+  <meta name="description" content="Case study: End-to-End Customer Experience Audit of Makro website and app by Darrell Nkosi. UX research, business analysis, and digital strategy for Massmart (Walmart).">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Case study page specific styles - updated with yellow theme */
+    .cs-hero {
+      padding: 130px 0 60px;
+      background: var(--bg-2);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cs-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-decoration: none;
+      margin-bottom: 28px;
+      transition: var(--transition);
+    }
+    .cs-back:hover { color: var(--accent); }
+    .cs-back i { font-size: 0.75rem; }
+
+    .cs-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(26,58,95,0.1);
+      border: 1px solid rgba(26,58,95,0.3);
+      color: var(--accent);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 5px 14px;
+      border-radius: 100px;
+      margin-bottom: 18px;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    .cs-hero h1 {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1.15;
+      margin-bottom: 18px;
+    }
+
+    .cs-hero h1 span { color: var(--accent); }
+
+    .cs-hero p {
+      font-size: 1rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      line-height: 1.8;
+      margin-bottom: 32px;
+    }
+
+    .cs-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-top: 8px;
+    }
+
+    .cs-meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .cs-meta-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+    }
+
+    .cs-meta-value {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    /* Content sections */
+    .cs-body { padding: 70px 0; }
+
+    .cs-grid {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .cs-sidebar {
+      position: sticky;
+      top: 90px;
+    }
+
+    .cs-nav {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
+    }
+
+    .cs-nav-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+
+    .cs-nav ul { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+
+    .cs-nav ul li a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 7px 10px;
+      border-radius: 6px;
+      transition: var(--transition);
+    }
+
+    .cs-nav ul li a i { color: var(--accent); font-size: 0.62rem; }
+    .cs-nav ul li a:hover { background: rgba(26,58,95,0.07); color: var(--accent); }
+
+    /* Content blocks */
+    .cs-section { margin-bottom: 52px; }
+
+    .cs-section-title {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .cs-section-title::before {
+      content: '';
+      width: 4px; height: 24px;
+      background: linear-gradient(to bottom, var(--primary), var(--accent));
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    .cs-text {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.85;
+      margin-bottom: 16px;
+    }
+
+    /* Phase cards */
+    .cs-phases {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 20px 0;
+    }
+
+    .cs-phase {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      transition: var(--transition);
+    }
+
+    .cs-phase:hover { border-color: rgba(26,58,95,0.3); box-shadow: var(--shadow); }
+
+    .cs-phase-num {
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .cs-phase h4 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .cs-phase p {
+      font-size: 0.81rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* Findings list */
+    .cs-findings {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin: 16px 0;
+    }
+
+    .cs-findings li {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    .finding-icon {
+      width: 28px; height: 28px;
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+      font-size: 0.72rem;
+    }
+
+    .finding-icon.red { background: rgba(239,68,68,0.1); color: #ef4444; }
+    .finding-icon.green { background: rgba(26,58,95,0.1); color: var(--accent); }
+    .finding-icon.amber { background: rgba(26,58,95,0.1); color: var(--accent); }
+
+    /* Outcome stats */
+    .cs-outcomes {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 20px 0;
+    }
+
+    .cs-outcome {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px 16px;
+      text-align: center;
+    }
+
+    .cs-outcome-num {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .cs-outcome-label {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* Deliverables table */
+    .cs-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.87rem;
+      margin: 16px 0;
+    }
+
+    .cs-table th {
+      background: var(--bg-2);
+      color: var(--text);
+      font-weight: 700;
+      padding: 11px 16px;
+      text-align: left;
+      border: 1px solid var(--border);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .cs-table td {
+      padding: 11px 16px;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      vertical-align: top;
+      line-height: 1.55;
+    }
+
+    .cs-table tr:hover td { background: rgba(26,58,95,0.03); }
+
+    /* Skills used strip */
+    .cs-skills-used {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    /* CTA */
+    .cs-cta {
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-top: 52px;
+    }
+
+    .cs-cta h3 { font-size: 1.1rem; font-weight: 800; color: var(--text); margin-bottom: 6px; }
+    .cs-cta p { font-size: 0.87rem; color: var(--text-muted); }
+
+    .cs-cta-btns { display: flex; gap: 12px; flex-wrap: wrap; flex-shrink: 0; }
+
+    /* Update all buttons to yellow */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 11px 26px; background: var(--accent); color: var(--btn-text, #ffffff);
+      border-radius: 8px; text-decoration: none; font-weight: 700;
+      font-size: 0.9rem; transition: var(--transition);
+      border: 2px solid var(--accent); cursor: pointer;
+      box-shadow: 0 4px 14px rgba(26,58,95,0.3);
+    }
+    .btn:hover {
+      background: var(--primary-dark); border-color: var(--primary-dark);
+      transform: translateY(-2px); box-shadow: 0 8px 24px rgba(26,58,95,0.3);
+    }
+    .btn-outline {
+      background: transparent; color: var(--accent);
+      border-color: var(--accent); box-shadow: none;
+    }
+    .btn-outline:hover {
+      background: var(--accent); color: #ffffff;
+      transform: translateY(-2px); box-shadow: 0 4px 14px rgba(26,58,95,0.3);
+    }
+
+    /* Print */
+    @media print {
+      header, .cs-sidebar, .cs-back, .cs-cta { display: none !important; }
+      .cs-grid { grid-template-columns: 1fr !important; }
+      .cs-phases { grid-template-columns: 1fr 1fr !important; }
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .cs-grid { grid-template-columns: 1fr; }
+      .cs-sidebar { position: static; }
+      .cs-nav { display: none; }
+      .cs-phases { grid-template-columns: 1fr; }
+      .cs-outcomes { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 540px) {
+      .cs-outcomes { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container header-content">
+      <div class="logo">Darrell <span class="logo-highlight">Nkosi</span></div>
+      <button class="menu-toggle" aria-label="Toggle menu"><i class="fas fa-bars"></i></button>
+      <nav>
+        <ul>
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#skills">Skills</a></li>
+          <li><a href="index.html#experience">Experience</a></li>
+          <li><a href="index.html#education">Education</a></li>
+          <li><a href="index.html#approach">How I Work</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+      </div>
+    </div>
+  </header>
+
+  <!-- Case Study Hero -->
+  <div class="cs-hero">
+    <div class="container">
+      <a href="index.html#experience" class="cs-back">
+        <i class="fas fa-arrow-left"></i> Back to Portfolio
+      </a>
+      <div class="cs-badge">Case Study · Business Analysis · UX Research</div>
+      <h1>Makro <span>Digital Experience</span> Audit</h1>
+      <p>An end-to-end customer journey audit of Makro's website and mobile app - identifying friction points, usability failures, and strategic improvement opportunities for one of South Africa's largest retailers (Massmart, powered by Walmart).</p>
+
+      <div class="cs-meta-row">
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Client</span>
+          <span class="cs-meta-value">Massmart (Makro) - powered by Walmart</span>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Duration</span>
+          <span class="cs-meta-value">23 June – 18 July 2025 (4 weeks)</span>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">My Role</span>
+          <span class="cs-meta-value">UX Researcher &amp; Business Analyst (Team B)</span>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Team Size</span>
+          <span class="cs-meta-value">2 Computer Science Students</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Case Study Body -->
+  <div class="cs-body">
+    <div class="container">
+      <div class="cs-grid">
+
+        <!-- Sidebar nav -->
+        <aside class="cs-sidebar">
+          <div class="cs-nav">
+            <div class="cs-nav-title">On This Page</div>
+            <ul>
+              <li><a href="#problem"><i class="fas fa-circle"></i> The Problem</a></li>
+              <li><a href="#approach"><i class="fas fa-circle"></i> My Approach</a></li>
+              <li><a href="#scope"><i class="fas fa-circle"></i> Scope &amp; Coverage</a></li>
+              <li><a href="#findings"><i class="fas fa-circle"></i> Key Findings</a></li>
+              <li><a href="#deliverables"><i class="fas fa-circle"></i> Deliverables</a></li>
+              <li><a href="#outcomes"><i class="fas fa-circle"></i> Outcomes</a></li>
+              <li><a href="#skills"><i class="fas fa-circle"></i> Skills Demonstrated</a></li>
+            </ul>
+          </div>
+        </aside>
+
+        <!-- Main content -->
+        <main>
+
+          <!-- Problem -->
+          <div class="cs-section" id="problem">
+            <div class="cs-section-title">The Problem</div>
+            <p class="cs-text">Makro's digital platforms - their website and mobile app - are used by millions of South African shoppers. However, the business had not recently conducted a structured, user-centric audit of the full online purchase journey. The question was simple: <strong>what does a real customer actually experience from the moment they land on the site to the moment they complete a purchase?</strong></p>
+            <p class="cs-text">Makro needed an independent, critical-thinking team to walk through the entire journey with fresh eyes, document what was broken or frustrating, and produce actionable recommendations backed by real data - not assumptions.</p>
+          </div>
+
+          <!-- Approach -->
+          <div class="cs-section" id="approach">
+            <div class="cs-section-title">My Approach</div>
+            <p class="cs-text">The project was structured as a 4-week consulting engagement with minimal input from the Makro team - we were expected to be proactive, independent, and critical. I applied a combination of UX research methods, business analysis frameworks, and structured documentation to work through the audit systematically.</p>
+
+            <div class="cs-phases">
+              <div class="cs-phase">
+                <div class="cs-phase-num">Week 1</div>
+                <h4>Kickoff &amp; Setup</h4>
+                <p>Aligned on scope, set up accounts, performed initial platform review, and planned the testing approach across web and mobile.</p>
+              </div>
+              <div class="cs-phase">
+                <div class="cs-phase-num">Week 2</div>
+                <h4>Search &amp; Browse Testing</h4>
+                <p>Tested search relevance, navigation, product pages, filters, image quality, and mobile vs desktop responsiveness. Logged and screenshotted all issues.</p>
+              </div>
+              <div class="cs-phase">
+                <div class="cs-phase-num">Week 3</div>
+                <h4>Cart, Checkout &amp; Post-Purchase</h4>
+                <p>Completed a real end-to-end purchase to experience the full transaction flow - including payment, confirmation, and order tracking.</p>
+              </div>
+              <div class="cs-phase">
+                <div class="cs-phase-num">Week 4</div>
+                <h4>Report &amp; Presentation</h4>
+                <p>Compiled all findings into a structured audit report, created recommendations, and delivered a 30-minute presentation with Q&amp;A to the Massmart team.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Scope -->
+          <div class="cs-section" id="scope">
+            <div class="cs-section-title">Scope &amp; Coverage</div>
+            <p class="cs-text">The audit covered every stage of the online customer journey, across both the Makro website and mobile app. Each area was tested systematically and documented with findings, screenshots, and recommendations.</p>
+
+            <table class="cs-table">
+              <thead>
+                <tr>
+                  <th>Journey Stage</th>
+                  <th>What Was Tested</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>User Onboarding</strong></td>
+                  <td>Account registration, email verification, login flow, password reset, mobile app installation</td>
+                </tr>
+                <tr>
+                  <td><strong>Search &amp; Navigation</strong></td>
+                  <td>Search relevance and speed, filters and sorting options, category browsing, product discovery</td>
+                </tr>
+                <tr>
+                  <td><strong>Product Pages</strong></td>
+                  <td>Information completeness (descriptions, pricing, availability), image quality, reviews, mobile responsiveness</td>
+                </tr>
+                <tr>
+                  <td><strong>Cart &amp; Checkout</strong></td>
+                  <td>Adding/removing items, promotions visibility, checkout flow, delivery options, payment methods, transaction errors</td>
+                </tr>
+                <tr>
+                  <td><strong>Post-Checkout</strong></td>
+                  <td>Order confirmation (email/SMS/app), order history tracking, returns and refund flow exploration</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Findings -->
+          <div class="cs-section" id="findings">
+            <div class="cs-section-title">Key Findings</div>
+            <p class="cs-text">We identified over 10 distinct usability and business issues across the platform. Below are representative findings across each category, documented using quantitative observations (clicks, time taken) and qualitative analysis.</p>
+
+            <ul class="cs-findings">
+              <li>
+                <div class="finding-icon red"><i class="fas fa-times"></i></div>
+                <div><strong>Onboarding friction:</strong> The registration and email verification process had multiple unnecessary steps, with unclear error messages that confused new users and increased drop-off risk.</div>
+              </li>
+              <li>
+                <div class="finding-icon red"><i class="fas fa-times"></i></div>
+                <div><strong>Search inconsistencies:</strong> Search results returned irrelevant products and the filtering system was difficult to use on mobile - a critical issue for a platform where most SA shoppers browse on their phones.</div>
+              </li>
+              <li>
+                <div class="finding-icon red"><i class="fas fa-times"></i></div>
+                <div><strong>Product page gaps:</strong> Several product listings had missing descriptions, unclear stock availability, and low-quality images - directly impacting purchase confidence.</div>
+              </li>
+              <li>
+                <div class="finding-icon amber"><i class="fas fa-exclamation"></i></div>
+                <div><strong>Checkout complexity:</strong> The checkout flow had more steps than necessary, promotions were not prominently displayed, and some payment method errors were not handled gracefully.</div>
+              </li>
+              <li>
+                <div class="finding-icon amber"><i class="fas fa-exclamation"></i></div>
+                <div><strong>Post-purchase communication:</strong> Order confirmation and tracking updates were inconsistent across email, SMS, and the app - creating uncertainty for customers after purchase.</div>
+              </li>
+              <li>
+                <div class="finding-icon green"><i class="fas fa-lightbulb"></i></div>
+                <div><strong>Opportunities identified:</strong> Simplified onboarding, smarter search with better mobile filters, richer product pages, a streamlined 3-step checkout, and unified post-purchase notifications were among the top improvement opportunities presented.</div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Deliverables -->
+          <div class="cs-section" id="deliverables">
+            <div class="cs-section-title">Deliverables Produced</div>
+            <p class="cs-text">All deliverables were produced independently with minimal guidance from the Makro team, as required by the project scope. The final presentation included a live Q&amp;A session with the Massmart stakeholder team.</p>
+
+            <table class="cs-table">
+              <thead>
+                <tr>
+                  <th>Deliverable</th>
+                  <th>Details</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Daily / Weekly Logs</strong></td>
+                  <td>Tracked all steps, bugs, glitches, and observations with screenshots and screen recordings</td>
+                </tr>
+                <tr>
+                  <td><strong>Audit Report</strong></td>
+                  <td>Structured by journey phase - each section covered Findings, Screenshots, Business Impact, and Recommendations</td>
+                </tr>
+                <tr>
+                  <td><strong>Stakeholder Presentation</strong></td>
+                  <td>30-minute presentation with Q&amp;A - summarised major insights, top 5 pain points, and improvement opportunities</td>
+                </tr>
+                <tr>
+                  <td><strong>Evidence Appendix</strong></td>
+                  <td>All screenshots and recordings catalogued as supporting evidence for each finding</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <p class="cs-text" style="margin-top:14px; font-size:0.82rem;">
+              <i class="fas fa-lock" style="color:var(--text-muted); margin-right:6px;"></i>
+              <em>Note: Specific findings, screenshots, and the full audit report are confidential per the project scope agreement with Massmart. The above represents a summary of the work completed.</em>
+            </p>
+          </div>
+
+          <!-- Outcomes -->
+          <div class="cs-section" id="outcomes">
+            <div class="cs-section-title">Outcomes</div>
+            <p class="cs-text">The project met all six success criteria defined in the scope of work - including clear documentation of the full customer experience, at least 10 actionable opportunities identified, a professional report, and a confident stakeholder presentation.</p>
+
+            <div class="cs-outcomes">
+              <div class="cs-outcome">
+                <div class="cs-outcome-num">10+</div>
+                <div class="cs-outcome-label">Actionable recommendations delivered</div>
+              </div>
+              <div class="cs-outcome">
+                <div class="cs-outcome-num">5</div>
+                <div class="cs-outcome-label">Journey stages fully audited</div>
+              </div>
+              <div class="cs-outcome">
+                <div class="cs-outcome-num">4</div>
+                <div class="cs-outcome-label">Weeks - independent execution</div>
+              </div>
+              <div class="cs-outcome">
+                <div class="cs-outcome-num">30<span style="font-size:1rem">min</span></div>
+                <div class="cs-outcome-label">Stakeholder presentation with Q&amp;A</div>
+              </div>
+              <div class="cs-outcome">
+                <div class="cs-outcome-num">2</div>
+                <div class="cs-outcome-label">Platforms audited - web &amp; mobile app</div>
+              </div>
+              <div class="cs-outcome">
+                <div class="cs-outcome-num">1</div>
+                <div class="cs-outcome-label">Real end-to-end purchase completed</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Skills -->
+          <div class="cs-section" id="skills">
+            <div class="cs-section-title">Skills Demonstrated</div>
+            <p class="cs-text">This project directly reflects the skills required of a Business Analyst or Systems Analyst in a South African corporate environment - requirements analysis, structured documentation, stakeholder communication, and data-backed reporting.</p>
+            <div class="cs-skills-used">
+              <span class="skill-tag">Business Analysis</span>
+              <span class="skill-tag">UX Research</span>
+              <span class="skill-tag">Requirements Gathering</span>
+              <span class="skill-tag">Customer Journey Mapping</span>
+              <span class="skill-tag">Stakeholder Presentations</span>
+              <span class="skill-tag">Structured Reporting</span>
+              <span class="skill-tag">Gap Analysis</span>
+              <span class="skill-tag">Quantitative &amp; Qualitative Testing</span>
+              <span class="skill-tag">Digital Strategy</span>
+              <span class="skill-tag">Critical Thinking</span>
+              <span class="skill-tag">Independent Execution</span>
+              <span class="skill-tag">Technical Documentation</span>
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <div class="cs-cta">
+            <div>
+              <h3>Interested in working together?</h3>
+              <p>I'm available for Business Analyst, Systems Analyst, and Full-Stack Developer roles across South Africa.</p>
+            </div>
+            <div class="cs-cta-btns">
+              <a href="index.html#contact" class="btn"><i class="fas fa-paper-plane"></i> Get In Touch</a>
+              <a href="index.html" class="btn btn-outline"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+            </div>
+          </div>
+
+        </main>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-logo">Darrell <span class="footer-highlight">Nkosi</span></div>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/darrell-nkosi-86797a28b" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://github.com/VelenkosiniNkosi" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="#" id="makroEmailIcon" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span id="footerYear"></span> Darrell Velenkosini Nkosi. All rights reserved.</p>
+        <p>Full-Stack Developer &amp; Business/Systems Analyst · Bloemfontein, SA</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" class="scroll-to-top" aria-label="Scroll to top">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+
+  <a href="https://wa.me/27634650914" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+    <span class="whatsapp-tooltip">Chat on WhatsApp</span>
+  </a>
+
+  <script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+      document.getElementById('footerYear').textContent = new Date().getFullYear();
+
+      // Theme Toggle
+      (function() {
+        const savedTheme =
+        if (savedThe
+      // Email links CF-proof
+      (function(){
+        var em = 'velenkosininkosi02'+'@'+'gmail.com';
+        var el1 = document.getElementById('makroEmailText');
+        var el2 = document.getElementById('makroEmailIcon');
+        if(el1){var a=document.createElement('a');a.href='mailto:'+em;a.textContent=em;el1.parentNode.replaceChild(a,el1);}
+        if(el2) el2.href='mailto:'+em;
+      })();
+    });
+      })();
+
+      // Mobile Navigation
+      const menuToggle = document.querySelector('.menu-toggle');
+      const nav = document.querySelector('nav');
+      
+      menuToggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        nav.classList.toggle('active');
+      });
+      
+      document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', () => nav.classList.remove('active'));
+      });
+      
+      document.addEventListener('click', function(e) {
+        if (!nav.contains(e.target) && !menuToggle.contains(e.target)) {
+          nav.classList.remove('active');
+        }
+      });
+
+      // Scroll to Top
+      const scrollToTop = document.querySelector('.scroll-to-top');
+      window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 400) {
+          scrollToTop.classList.add('active');
+        } else {
+          scrollToTop.classList.remove('active');
+        }
+      });
+
+      scrollToTop.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) window.scrollTo({ top: target.offsetTop - 75, behavior: 'smooth' });
+        });
+      });
+
+    });
+  </script>
+
+</body>
+</html>
