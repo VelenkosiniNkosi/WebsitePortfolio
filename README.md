@@ -1,6 +1,6 @@
 # Darrell Velenkosini Nkosi - Portfolio Website
 
-A personal portfolio website that shows my skills, experience, and achievements as a final-year BCIS Honours student at the University of the Free State. It is built for South African IT companies, recruiters, and hiring managers looking for Full-Stack Developers, Business Analysts, and Systems Analysts.
+A personal portfolio website that shows my skills, experience, and achievements as a BCIS Honours student at the University of the Free State (2026). It is built for South African IT companies, recruiters, and hiring managers looking for Full-Stack Developers, Business Analysts, and Systems Analysts.
 
 ---
 
