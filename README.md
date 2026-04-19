@@ -6,7 +6,7 @@ A personal portfolio website that shows my skills, experience, and achievements 
 
 ## Live Website
 
-[https://velenkosininkosi.github.io/WebsitePortfolio/](https://velenkosininkosi.github.io/WebsitePortfolio/)
+[https://velenkosininkosi.github.io/WebsitePortfolio/](https://velenkosininkosi.github.io/web/)
 
 ---
 
