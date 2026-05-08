@@ -6,7 +6,7 @@ A personal portfolio website that shows my skills, experience, and achievements 
 
 ## Live Website
 
-[https://velenkosininkosi.github.io/WebsitePortfolio/](https://velenkosininkosi.github.io/web/)
+[https://velenkosininkosi.github.io/web/](https://velenkosininkosi.github.io/web/)
 
 ---
 
@@ -197,7 +197,7 @@ If you are a recruiter or company interested in working with me:
 - **Email:** velenkosininkosi02@gmail.com
 - **LinkedIn:** [linkedin.com/in/darrell-nkosi-86797a28b](https://www.linkedin.com/in/darrell-nkosi-86797a28b)
 - **WhatsApp:** +27 063 465 0914
-- **Portfolio:** [velenkosininkosi.github.io/WebsitePortfolio](https://velenkosininkosi.github.io/web/)
+- **Portfolio:** [velenkosininkosi.github.io/web](https://velenkosininkosi.github.io/web/)
 
 ---
 
